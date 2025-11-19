@@ -17,6 +17,16 @@ Additional external dependencies include:
 - Compression libraries
   - See [##Compressors]
   - The current build process expects that _all_ supported compressors are present; this will change in the future
+ 
+Building should just require the standard CMake build procedure:
+
+```bash
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=<installdir> -S .. -B .
+make -j<number of cores on your machine>
+make install
+```
 
 ## Usage
 
@@ -27,7 +37,7 @@ Additional external dependencies include:
            [--results-file <resFile>]
 ```
 
-- `--input-file <file>`     The path to the `.root` file containing the data to be compressed
+- `--input-file <inFile>`   The path to the `.root` file containing the data to be compressed
 - `--tree-name <treename>`  The name of the TTree in `<file>`
 - `--branch-names <branch1,branch2,...>`    The branches to read from `<treename>`, as a comma-separated list
 - `--chunk-size <size>`     The amount of data to compress at a time, in bytes
